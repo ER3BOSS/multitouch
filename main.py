@@ -38,7 +38,7 @@ def main():
         frame = cv2.GaussianBlur(frame, (11, 11), 0)
 
         # apply highpass
-        # frame = highpass(frame, 3)
+        frame = highpass(frame, 3)
 
         # apply threshold
         frame, threshold = brightness_threshold(frame)
@@ -58,9 +58,9 @@ def main():
 
 def create_trackbars():
     cv2.namedWindow("Trackbars")
-    cv2.createTrackbar("threshold", "Trackbars", 120, 255, on_change)
-    cv2.createTrackbar("min_area", "Trackbars", 15, 500, on_change)
-    cv2.createTrackbar("max_area", "Trackbars", 70, 500, on_change)
+    cv2.createTrackbar("threshold", "Trackbars", 140, 255, on_change)
+    cv2.createTrackbar("min_area", "Trackbars", 10, 500, on_change)
+    cv2.createTrackbar("max_area", "Trackbars", 100, 500, on_change)
 
 
 def brightness_threshold(frame):
