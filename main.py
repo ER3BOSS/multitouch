@@ -13,7 +13,7 @@ def highpass(img, sigma):
     return img - cv2.GaussianBlur(img, (0, 0), sigma) + 127
 
 
-def run():
+def main():
     cap = cv2.VideoCapture("mt_camera_raw.avi")
     image = cv2.imread("background.jpg")
 
@@ -89,10 +89,6 @@ def bg_subtraction(frame):
     foreground_mask = backSub.apply(frame)
     frame = cv2.bitwise_and(frame, frame, mask=foreground_mask)
     return frame
-
-
-def main():
-    run()
 
 
 if __name__ == '__main__':
